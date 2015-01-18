@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Mm_Minimal>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Mm_Minimal>
+    </modules>
+</config>
