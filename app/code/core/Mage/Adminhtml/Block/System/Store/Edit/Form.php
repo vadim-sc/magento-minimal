@@ -193,13 +193,13 @@ class Mage_Adminhtml_Block_System_Store_Edit_Form extends Mage_Adminhtml_Block_W
                 'disabled'  => $groupModel->isReadOnly(),
             ));
 
-            $categories = Mage::getModel('adminhtml/system_config_source_category')->toOptionArray();
+
 
             $fieldset->addField('group_root_category_id', 'select', array(
                 'name'      => 'group[root_category_id]',
                 'label'     => Mage::helper('core')->__('Root Category'),
                 'value'     => $groupModel->getRootCategoryId(),
-                'values'    => $categories,
+                'values'    => array(array('label' => '', 'value' => 0)),
                 'required'  => true,
                 'disabled'  => $groupModel->isReadOnly(),
             ));
