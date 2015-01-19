@@ -143,11 +143,11 @@ class Mage_Adminhtml_Block_System_Store_Tree extends Mage_Adminhtml_Block_Widget
      */
     public function renderStoreGroup(Mage_Core_Model_Store_Group $storeGroup)
     {
-        $rootCategory = Mage::getModel('catalog/category')->load($storeGroup->getRootCategoryId());
+
         return $this->_createCellTemplate()
             ->setObject($storeGroup)
             ->setLinkUrl($this->getUrl('*/*/editGroup', array('group_id' => $storeGroup->getGroupId())))
-            ->setInfo($this->__('Root Category') . ': ' . $this->escapeHtml($rootCategory->getName()))
+            ->setInfo($this->__('Root Category') . ': ')
             ->toHtml();
     }
 

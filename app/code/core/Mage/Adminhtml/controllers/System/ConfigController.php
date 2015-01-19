@@ -108,9 +108,6 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
 
             $this->_addJs($this->getLayout()
                 ->createBlock('adminhtml/template')
-                ->setTemplate('system/shipping/ups.phtml'));
-            $this->_addJs($this->getLayout()
-                ->createBlock('adminhtml/template')
                 ->setTemplate('system/config/js.phtml'));
             $this->_addJs($this->getLayout()
                 ->createBlock('adminhtml/template')
@@ -234,26 +231,6 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
             $this->_saveState($configState);
             $this->getResponse()->setBody('success');
         }
-    }
-
-    /**
-     * Export shipping table rates in csv format
-     *
-     */
-    public function exportTableratesAction()
-    {
-        $fileName   = 'tablerates.csv';
-        /** @var $gridBlock Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid */
-        $gridBlock  = $this->getLayout()->createBlock('adminhtml/shipping_carrier_tablerate_grid');
-        $website    = Mage::app()->getWebsite($this->getRequest()->getParam('website'));
-        if ($this->getRequest()->getParam('conditionName')) {
-            $conditionName = $this->getRequest()->getParam('conditionName');
-        } else {
-            $conditionName = $website->getConfig('carriers/tablerate/condition_name');
-        }
-        $gridBlock->setWebsiteId($website->getId())->setConditionName($conditionName);
-        $content    = $gridBlock->getCsvFile();
-        $this->_prepareDownloadResponse($fileName, $content);
     }
 
     /**

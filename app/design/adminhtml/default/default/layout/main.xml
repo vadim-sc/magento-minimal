@@ -77,7 +77,7 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>mage/adminhtml/accordion.js</script></action>
                 <action method="addJs"><script>mage/adminhtml/tools.js</script></action>
                 <action method="addJs"><script>mage/adminhtml/uploader.js</script></action>
-                <action method="addJs"><script>mage/adminhtml/product.js</script></action>
+
 
                 <action method="addCss"><name>reset.css</name></action>
                 <action method="addCss"><name>boxes.css</name></action>
@@ -262,12 +262,6 @@ Base preview layout
             <block type="adminhtml/dashboard_tab_customers_newest" name="adminhtml.dashboard.tab.customers.newest"/>
         </block>
     </adminhtml_dashboard_customersnewest>
-
-    <adminhtml_dashboard_productsviewed>
-        <block type="core/text_list" name="root" output="toHtml">
-            <block type="adminhtml/dashboard_tab_products_viewed" name="adminhtml.dashboard.tab.products.viewed"/>
-        </block>
-    </adminhtml_dashboard_productsviewed>
 
     <adminhtml_index_login>
         <block type="core/text_list" name="root" output="toHtml">
