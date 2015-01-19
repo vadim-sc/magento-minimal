@@ -711,19 +711,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Retrieve customer tax class identifier
-     *
-     * @return int
-     */
-    public function getTaxClassId()
-    {
-        if (!$this->getData('tax_class_id')) {
-            $this->setTaxClassId(Mage::getModel('customer/group')->getTaxClassId($this->getGroupId()));
-        }
-        return $this->getData('tax_class_id');
-    }
-
-    /**
      * Check store availability for customer
      *
      * @param   Mage_Core_Model_Store | int $store

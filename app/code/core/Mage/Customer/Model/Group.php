@@ -31,7 +31,6 @@
  * @method Mage_Customer_Model_Resource_Group getResource()
  * @method string getCustomerGroupCode()
  * @method Mage_Customer_Model_Group setCustomerGroupCode(string $value)
- * @method Mage_Customer_Model_Group setTaxClassId(int $value)
  *
  * @category    Mage
  * @package     Mage_Customer
@@ -67,7 +66,6 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
      */
     protected $_eventObject = 'object';
 
-    protected static $_taxClassIds = array();
 
     protected function _construct()
     {
@@ -93,19 +91,6 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     {
         return $this->getCustomerGroupCode();
     }
-
-    public function getTaxClassId($groupId = null)
-    {
-        if (!is_null($groupId)) {
-            if (empty(self::$_taxClassIds[$groupId])) {
-                $this->load($groupId);
-                self::$_taxClassIds[$groupId] = $this->getData('tax_class_id');
-            }
-            $this->setData('tax_class_id', self::$_taxClassIds[$groupId]);
-        }
-        return $this->getData('tax_class_id');
-    }
-
 
     public function usesAsDefault()
     {

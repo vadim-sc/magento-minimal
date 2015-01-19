@@ -728,11 +728,6 @@ $table = $installer->getConnection()
     ->addColumn('customer_group_code', Varien_Db_Ddl_Table::TYPE_TEXT, 32, array(
         'nullable'  => false,
         ), 'Customer Group Code')
-    ->addColumn('tax_class_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
-        'unsigned'  => true,
-        'nullable'  => false,
-        'default'   => '0',
-        ), 'Tax Class Id')
     ->setComment('Customer Group');
 $installer->getConnection()->createTable($table);
 
@@ -844,23 +839,19 @@ $installer->endSetup();
 // insert default customer groups
 $installer->getConnection()->insertForce($installer->getTable('customer/customer_group'), array(
     'customer_group_id'     => 0,
-    'customer_group_code'   => 'NOT LOGGED IN',
-    'tax_class_id'          => 3
+    'customer_group_code'   => 'NOT LOGGED IN'
 ));
 $installer->getConnection()->insertForce($installer->getTable('customer/customer_group'), array(
     'customer_group_id'     => 1,
-    'customer_group_code'   => 'General',
-    'tax_class_id'          => 3
+    'customer_group_code'   => 'General'
 ));
 $installer->getConnection()->insertForce($installer->getTable('customer/customer_group'), array(
     'customer_group_id'     => 2,
-    'customer_group_code'   => 'Wholesale',
-    'tax_class_id'          => 3
+    'customer_group_code'   => 'Wholesale'
 ));
 $installer->getConnection()->insertForce($installer->getTable('customer/customer_group'), array(
     'customer_group_id'     => 3,
-    'customer_group_code'   => 'Retailer',
-    'tax_class_id'          => 3
+    'customer_group_code'   => 'Retailer'
 ));
 
 $installer->installEntities();

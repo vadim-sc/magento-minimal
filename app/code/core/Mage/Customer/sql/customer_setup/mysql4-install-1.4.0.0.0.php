@@ -256,11 +256,10 @@ CREATE TABLE `{$installer->getTable('customer_entity_varchar')}` (
 CREATE TABLE `{$installer->getTable('customer_group')}` (
   `customer_group_id` smallint(3) unsigned NOT NULL auto_increment,
   `customer_group_code` varchar(32) NOT NULL default '',
-  `tax_class_id` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`customer_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer groups';
 
-INSERT INTO `{$installer->getTable('customer_group')}` VALUES(0, 'NOT LOGGED IN', 3), (1, 'General', 3), (2, 'Wholesale', 3), (3, 'Retailer', 3);
+INSERT INTO `{$installer->getTable('customer_group')}` VALUES(0, 'NOT LOGGED IN'), (1, 'General'), (2, 'Wholesale'), (3, 'Retailer');
 
 -- DROP TABLE IF EXISTS `{$installer->getTable('customer/eav_attribute')}`;
 CREATE TABLE `{$installer->getTable('customer/eav_attribute')}` (

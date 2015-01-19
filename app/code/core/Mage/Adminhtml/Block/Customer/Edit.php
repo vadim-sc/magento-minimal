@@ -38,15 +38,6 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
         $this->_objectId = 'id';
         $this->_controller = 'customer';
 
-        if ($this->getCustomerId() &&
-            Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/create')) {
-            $this->_addButton('order', array(
-                'label' => Mage::helper('customer')->__('Create Order'),
-                'onclick' => 'setLocation(\'' . $this->getCreateOrderUrl() . '\')',
-                'class' => 'add',
-            ), 0);
-        }
-
         parent::__construct();
 
         $this->_updateButton('save', 'label', Mage::helper('customer')->__('Save Customer'));
@@ -60,11 +51,6 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
         if (!Mage::registry('current_customer')->isDeleteable()) {
             $this->_removeButton('delete');
         }
-    }
-
-    public function getCreateOrderUrl()
-    {
-        return $this->getUrl('*/sales_order_create/start', array('customer_id' => $this->getCustomerId()));
     }
 
     public function getCustomerId()
@@ -90,7 +76,6 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
     public function getFormHtml()
     {
         $html = parent::getFormHtml();
-        $html .= $this->getLayout()->createBlock('adminhtml/catalog_product_composite_configure')->toHtml();
         return $html;
     }
 

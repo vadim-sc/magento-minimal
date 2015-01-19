@@ -199,36 +199,6 @@
                         </name>
                     </fields>
                 </ident_general>
-                <ident_sales translate="label">
-                    <label>Sales Representative</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>2</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <email translate="label">
-                            <label>Sender Email</label>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-email</validate>
-                            <backend_model>adminhtml/system_config_backend_email_address</backend_model>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </email>
-                        <name translate="label">
-                            <label>Sender Name</label>
-                            <frontend_type>text</frontend_type>
-                            <backend_model>adminhtml/system_config_backend_email_sender</backend_model>
-                            <validate>validate-emailSender</validate>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </name>
-                    </fields>
-                </ident_sales>
                 <ident_support translate="label">
                     <label>Customer Support</label>
                     <frontend_type>text</frontend_type>

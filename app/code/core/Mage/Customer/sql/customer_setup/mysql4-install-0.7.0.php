@@ -148,11 +148,10 @@ CREATE TABLE `{$this->getTable('customer_entity_varchar')}` (
 CREATE TABLE `{$this->getTable('customer_group')}` (
   `customer_group_id` smallint(3) unsigned NOT NULL auto_increment,
   `customer_group_code` varchar(32) NOT NULL default '',
-  `tax_class_id` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`customer_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer groups';
 
-insert into `{$this->getTable('customer_group')}` (`customer_group_id`,`customer_group_code`,`tax_class_id`) values (0,'NOT LOGGED IN',1),(1,'General',3),(2,'Wholesale',3),(3,'Retailer',3);
+insert into `{$this->getTable('customer_group')}` (`customer_group_id`,`customer_group_code`) values (0,'NOT LOGGED IN'),(1,'General'),(2,'Wholesale'),(3,'Retailer');
 
 -- DROP TABLE IF EXISTS `{$this->getTable('customer_address_entity')}`;
 CREATE TABLE `{$this->getTable('customer_address_entity')}` (

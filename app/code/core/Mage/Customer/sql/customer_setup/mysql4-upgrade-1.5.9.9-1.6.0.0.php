@@ -642,13 +642,6 @@ $tables = array(
                 'length'    => 32,
                 'nullable'  => false,
                 'comment'   => 'Customer Group Code'
-            ),
-            'tax_class_id' => array(
-                'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-                'unsigned'  => true,
-                'nullable'  => false,
-                'default'   => '0',
-                'comment'   => 'Tax Class Id'
             )
         ),
         'comment' => 'Customer Group'
