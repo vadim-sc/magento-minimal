@@ -58,11 +58,6 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     {
         if (!isset($this->_attributes[$entityType])) {
             switch ($entityType) {
-                case 'product':
-                    $attributes = Mage::getSingleton('catalog/convert_parser_product')
-                        ->getExternalAttributes();
-                    break;
-
                 case 'customer':
                     $attributes = Mage::getSingleton('customer/convert_parser_customer')
                         ->getExternalAttributes();
@@ -121,45 +116,6 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
                 ->setOnClick("removeFieldMapping(this)")->toHtml();
         }
         return $this->_removeMapButtonHtml;
-    }
-
-    public function getProductTypeFilterOptions()
-    {
-        $options = Mage::getSingleton('catalog/product_type')->getOptionArray();
-        array_splice($options, 0, 0, array(''=>$this->__('Any Type')));
-        return $options;
-    }
-
-    public function getProductAttributeSetFilterOptions()
-    {
-        $options = Mage::getResourceModel('eav/entity_attribute_set_collection')
-            ->setEntityTypeFilter(Mage::getModel('catalog/product')->getResource()->getTypeId())
-            ->load()
-            ->toOptionHash();
-
-        $opt = array();
-        $opt = array(''=>$this->__('Any Attribute Set'));
-        if ($options) foreach($options as $index => $value) {
-            $opt[$index]  = $value;
-        }
-        //array_slice($options, 0, 0, array(''=>$this->__('Any Attribute Set')));
-        return $opt;
-    }
-
-    public function getProductVisibilityFilterOptions()
-    {
-        $options = Mage::getSingleton('catalog/product_visibility')->getOptionArray();
-
-        array_splice($options, 0, 0, array(''=>$this->__('Any Visibility')));
-        return $options;
-    }
-
-    public function getProductStatusFilterOptions()
-    {
-        $options = Mage::getSingleton('catalog/product_status')->getOptionArray();
-
-        array_splice($options, 0, 0, array(''=>$this->__('Any Status')));
-        return $options;
     }
 
     public function getStoreFilterOptions()

@@ -61,7 +61,6 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
         if (count($this->_getSession()->getCustomer()->getAddresses())) {
             $this->loadLayout();
             $this->_initLayoutMessages('customer/session');
-            $this->_initLayoutMessages('catalog/session');
 
             $block = $this->getLayout()->getBlock('address_book');
             if ($block) {

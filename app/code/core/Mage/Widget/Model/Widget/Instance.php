@@ -79,22 +79,6 @@ class Mage_Widget_Model_Widget_Instance extends Mage_Core_Model_Abstract
         $this->_cacheTag = 'widget_instance';
         parent::_construct();
         $this->_init('widget/widget_instance');
-        $this->_layoutHandles = array(
-            'anchor_categories' => self::ANCHOR_CATEGORY_LAYOUT_HANDLE,
-            'notanchor_categories' => self::NOTANCHOR_CATEGORY_LAYOUT_HANDLE,
-            'all_products' => self::PRODUCT_LAYOUT_HANDLE,
-            'all_pages' => self::DEFAULT_LAYOUT_HANDLE
-        );
-        $this->_specificEntitiesLayoutHandles = array(
-            'anchor_categories' => self::SINGLE_CATEGORY_LAYOUT_HANDLE,
-            'notanchor_categories' => self::SINGLE_CATEGORY_LAYOUT_HANDLE,
-            'all_products' => self::SINGLE_PRODUCT_LAYOUT_HANLDE,
-        );
-        foreach (Mage_Catalog_Model_Product_Type::getTypes() as $typeId => $type) {
-            $layoutHandle = str_replace('{{TYPE}}', $typeId, self::PRODUCT_TYPE_LAYOUT_HANDLE);
-            $this->_layoutHandles[$typeId . '_products'] = $layoutHandle;
-            $this->_specificEntitiesLayoutHandles[$typeId . '_products'] = self::SINGLE_PRODUCT_LAYOUT_HANLDE;
-        }
     }
 
      /**

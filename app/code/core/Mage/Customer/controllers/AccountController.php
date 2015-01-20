@@ -106,7 +106,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
-        $this->_initLayoutMessages('catalog/session');
+
 
         $this->getLayout()->getBlock('content')->append(
             $this->getLayout()->createBlock('customer/account_dashboard')
@@ -127,7 +127,6 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
         $this->getResponse()->setHeader('Login-Required', 'true');
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
-        $this->_initLayoutMessages('catalog/session');
         $this->renderLayout();
     }
 
@@ -856,7 +855,6 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
-        $this->_initLayoutMessages('catalog/session');
 
         $block = $this->getLayout()->getBlock('customer_edit');
         if ($block) {
